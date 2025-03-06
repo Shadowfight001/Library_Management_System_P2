@@ -1,4 +1,4 @@
-# Library Management System using SQL Project --P2
+# Library Management System using SQL Project - P2
 
 ## Project Overview
 
@@ -26,86 +26,91 @@ This project demonstrates the implementation of a Library Management System usin
 - **Table Creation**: Created tables for branches, employees, members, books, issued status, and return status. Each table includes relevant columns and relationships.
 
 ```sql
+-- Library Management System - PROJECT-02 -- 
+
 CREATE DATABASE library_project_2;
 
+-- creating branch table --
+
 DROP TABLE IF EXISTS branch;
-CREATE TABLE branch
+create table branch
 (
-            branch_id VARCHAR(10) PRIMARY KEY,
-            manager_id VARCHAR(10),
-            branch_address VARCHAR(30),
-            contact_no VARCHAR(15)
+	branch_id VARCHAR(10) PRIMARY KEY,
+	manager_id VARCHAR(10),
+	branch_address VARCHAR(50),
+	contact_no VARCHAR(15)
 );
 
 
--- Create table "Employee"
+-- creating employees table --
+
 DROP TABLE IF EXISTS employees;
-CREATE TABLE employees
+create table employees
 (
-            emp_id VARCHAR(10) PRIMARY KEY,
-            emp_name VARCHAR(30),
-            position VARCHAR(30),
-            salary DECIMAL(10,2),
-            branch_id VARCHAR(10),
-            FOREIGN KEY (branch_id) REFERENCES  branch(branch_id)
+	emp_id VARCHAR(10) PRIMARY KEY,
+	emp_name VARCHAR(25),
+	position VARCHAR(25),
+	salary INT,
+	branch_id VARCHAR(25) --FK
+	FOREIGN KEY (branch_id) REFERENCES  branch(branch_id)
 );
 
 
--- Create table "Members"
+-- creatign members table --
+
 DROP TABLE IF EXISTS members;
-CREATE TABLE members
+create table members
 (
-            member_id VARCHAR(10) PRIMARY KEY,
-            member_name VARCHAR(30),
-            member_address VARCHAR(30),
-            reg_date DATE
+	member_id VARCHAR(10) PRIMARY KEY,
+	member_name VARCHAR(20),
+	member_address VARCHAR(20),
+	reg_date DATE
 );
 
 
+-- creating books table --
 
--- Create table "Books"
 DROP TABLE IF EXISTS books;
-CREATE TABLE books
+create table books
 (
-            isbn VARCHAR(50) PRIMARY KEY,
-            book_title VARCHAR(80),
-            category VARCHAR(30),
-            rental_price DECIMAL(10,2),
-            status VARCHAR(10),
-            author VARCHAR(30),
-            publisher VARCHAR(30)
+	isbn VARCHAR(20) PRIMARY KEY,
+	book_title VARCHAR(70),
+	category VARCHAR(20),	
+	rental_price FLOAT,	
+	status VARCHAR(10),
+	author VARCHAR(30),
+	publisher VARCHAR(55)
 );
 
 
 
--- Create table "IssueStatus"
+-- creatign issued_status table --
+
 DROP TABLE IF EXISTS issued_status;
-CREATE TABLE issued_status
+create table issued_status
 (
-            issued_id VARCHAR(10) PRIMARY KEY,
-            issued_member_id VARCHAR(30),
-            issued_book_name VARCHAR(80),
-            issued_date DATE,
-            issued_book_isbn VARCHAR(50),
-            issued_emp_id VARCHAR(10),
-            FOREIGN KEY (issued_member_id) REFERENCES members(member_id),
-            FOREIGN KEY (issued_emp_id) REFERENCES employees(emp_id),
-            FOREIGN KEY (issued_book_isbn) REFERENCES books(isbn) 
+	issued_id VARCHAR(10) PRIMARY KEY,
+	issued_member_id VARCHAR(10),        -- FK
+	issued_book_name VARCHAR(70),	
+	issued_date	DATE,
+	issued_book_isbn VARCHAR(30),    --FK
+	issued_emp_id VARCHAR(10)     --FK
 );
 
 
+-- creatign return_status table --
 
--- Create table "ReturnStatus"
 DROP TABLE IF EXISTS return_status;
-CREATE TABLE return_status
+create table return_status
 (
-            return_id VARCHAR(10) PRIMARY KEY,
-            issued_id VARCHAR(30),
-            return_book_name VARCHAR(80),
-            return_date DATE,
-            return_book_isbn VARCHAR(50),
-            FOREIGN KEY (return_book_isbn) REFERENCES books(isbn)
+	return_id VARCHAR(10) PRIMARY KEY,
+	issued_id VARCHAR(10),
+	return_book_name VARCHAR(75),	
+	return_date	DATE,
+	return_book_isbn VARCHAR(30),
+	FOREIGN KEY (return_book_isbn) REFERENCES books(isbn)
 );
+
 
 ```
 
@@ -602,9 +607,6 @@ This project showcases SQL skills in developing and managing a library managemen
 
 This project showcases SQL skills essential for database management and analysis. For more content on SQL and data analysis, connect with me through the following channels:
 
-- **YouTube**: [Subscribe to my channel for tutorials and insights](https://www.youtube.com/@zero_analyst)
-- **Instagram**: [Follow me for daily tips and updates](https://www.instagram.com/zero_analyst/)
-- **LinkedIn**: [Connect with me professionally](https://www.linkedin.com/in/najirr)
-- **Discord**: [Join our community for learning and collaboration](https://discord.gg/36h5f2Z5PK)
+- **LinkedIn**: [Connect with me](www.linkedin.com/in/udit-patel-1108s)
 
 Thank you for your interest in this project!
