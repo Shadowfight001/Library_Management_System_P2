@@ -596,7 +596,7 @@ This project showcases SQL skills in developing and managing a library managemen
 
 1. **Clone the Repository**: Clone this repository to your local machine.
    ```sh
-   git clone https://github.com/Shadowfight001/Library_Management_Library_P2.git
+   git clone https://github.com/Shadowfight001/Library_Management_System_P2.git
    ```
 
 2. **Set Up the Database**: Execute the SQL scripts in the `database_setup.sql` file to create and populate the database.
